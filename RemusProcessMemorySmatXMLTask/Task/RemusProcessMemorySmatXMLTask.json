@@ -1,0 +1,22 @@
+﻿{
+  "SourceHost": "15.114.145.65",
+  "SourceUserName": "toftask",
+  "SourcePassword": "D&F!l3l0@d3r",
+  "SourcePort": 22,
+  "SourceWorkDirectory": "/sftp/guestuser/tofs",
+  "SqlConnectionString": "Data Source=16.102.28.246;User ID=sa;Password=Qwerty123456;Initial Catalog=DataServicesManagement;Persist Security Info=True;",
+  "IsProduction": true,
+  "TimeOffset": 1,
+  "TestOutputFileName": "",
+  "EventLogPath": "",  
+  "LogInformation": true,
+  "LogWarnings": true,
+  "LogErrors": true,
+  "LogFailureAudits": true,
+  "LogSuccessAudits": true,
+  "MailFrom": "gesdss@hp.com",
+  "MailTo": "gesdss@hp.com",
+  "MailCc": "",
+  "MailServer": "smtp3.hp.com",
+  "MailServerPort": 25
+}

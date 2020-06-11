@@ -1,0 +1,57 @@
+﻿1. Copy Project folder: 
+	DSTaskTemplate -> DSTaskTemplate_copy
+	
+2. Rename the copied project folder with the TOF File Type appended with the word "Task".
+	DSTaskTemplate_copy -> RemusMembistTask
+	
+3. Rename project files, *.csproj, with the Task Name.
+	DSTaskTemplateTOF.csproj -> RemusMembistTask.csproj
+	DSTaskTemplateTOF.csproj.user -> RemusMembistTask.csproj.user
+	
+4. Add Project to Solution:
+	Right click Solution -> Add -> Existing Project...
+	Select the new project file: RemusMembistTask.csproj
+	
+5. Right click the new project and select properties.
+	Change the following items: (Refer to RemusSystemInfoTask project for guidance)
+	Application Tab
+		Assembly Name (Edit)  
+		Default namespace (Edit) 
+		Assembly Information... (Button)
+			Title
+			Product
+			GUID  (used SQL server to generate a new GUID [select newid()])
+			
+6. Rename Task folder Files:
+	DSTaskTemplate.cs -> RemusMembistTask.cs
+	DSTaskTemplate.json -> RemusMembistTask.json
+	
+7. Rename Models folder Files:
+	DSTaskTemplateModel.cs -> RemusMembistModel.cs 	
+	
+8. Update class name space and class name
+	CommandLineOptions.cs
+		namespace DataServicesTaskTemplate -> namespace RemusMembistTask
+	RemusMembistModel.cs 
+		namespace DataServicesTaskTemplate -> namespace RemusMembistTask
+		public sealed class DSTaskTemplateModel -> public sealed class RemusMembistModel
+	RemusMembistTask.cs
+		namespace DataServicesTaskTemplate -> namespace RemusMembistTask
+		public class DSTaskTemplate : IDisposable -> public class MembistTask : IDisposable
+	RemusMembistTask.json
+		Update PathToSearch, PendingLocation properties.
+	TaskConfig.cs
+		namespace DataServicesTaskTemplate -> namespace RemusMembistTask
+	Program.cs
+		namespace DataServicesTaskTemplate -> namespace RemusMembistTask
+		 DSTaskTemplate agent = new DSTaskTemplate(); ->  MembistTask agent = new MembistTask();
+		 
+9. Go the the projects debug folder and delete all files
+	...\Visual Studio 2013\Projects\DataServicesGlobalReportingService-BRANCH\RemusMembistTask\bin\Debug
+
+10. Set the project as the Startup project and Build All.  There should be no errors.  IF you have errors, veriftfy the steps above.
+
+11. In the Task Folder, open the TOF Class, MembistTask.cs, file and Change\update the "Task..." Regions with the code required to process the TOF.  Regions with "Desing...", in most cased should not required editing.
+
+12. Debugging:  Remember to copy the json file to the debug folder and add the "vhost" to the file name:
+	RemusMembistTask.json -> RemusMembistTask.vshost.json
